@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#071013</color>
+    <color name="surface">#0F1F26</color>
+    <color name="surface2">#142B34</color>
+    <color name="surface3">#1A3742</color>
+    <color name="ink">#E9F4F5</color>
+    <color name="ink2">#B3CCD0</color>
+    <color name="muted">#7B99A0</color>
+    <color name="teal">#46E3CD</color>
+    <color name="teal_dim">#16343A</color>
+    <color name="ink_on_teal">#04231F</color>
+    <color name="sand">#F6C66B</color>
+    <color name="ink_on_sand">#2A1F06</color>
+    <color name="coral">#FF6A58</color>
+    <color name="line">#26505A</color>
+</resources>

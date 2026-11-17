@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tide &amp; Tool</string>
+    <string name="channel_prompt_name">Business call prompt</string>
+    <string name="channel_prompt_desc">Shows while a call is ringing on the business line</string>
+    <string name="channel_import_name">Imported recordings</string>
+    <string name="channel_import_desc">Tells you when a new Samsung call recording was found</string>
+</resources>

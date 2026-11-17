@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- call screening role, phone account + call state, caller name -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <!-- the prompt -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- voice notes -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!-- finding the Samsung call recording, and writing exports -->
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+
+    <!-- speech model download and the optional AI summary -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+    <uses-feature android:name="android.hardware.microphone" android:required="true" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="false"
+        android:theme="@style/Theme.TideTool">
+
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.RecorderActivity" android:exported="false" />
+        <activity android:name=".ui.SaveActivity" android:exported="false" />
+        <activity android:name=".ui.DetailActivity" android:exported="false" />
+        <activity android:name=".ui.PhonebookActivity" android:exported="false" />
+        <activity android:name=".ui.SettingsActivity" android:exported="false" />
+        <activity android:name=".ui.SetupActivity" android:exported="false" />
+        <activity android:name=".ui.DiagnosticsActivity" android:exported="false" />
+
+        <!-- full-screen-intent target when the phone is locked -->
+        <activity
+            android:name=".ui.PromptActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:showWhenLocked="true"
+            android:taskAffinity=""
+            android:theme="@style/Theme.TideTool.Prompt"
+            android:turnScreenOn="true" />
+
+        <service
+            android:name=".call.TideCallScreeningService"
+            android:exported="true"
+            android:permission="android.permission.BIND_SCREENING_SERVICE">
+            <intent-filter>
+                <action android:name="android.telecom.CallScreeningService" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name=".call.PromptReceiver"
+            android:exported="false" />
+
+    </application>
+</manifest>
